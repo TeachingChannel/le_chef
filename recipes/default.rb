@@ -17,11 +17,17 @@
 #
 
 if platform_family?('rhel')
+  yum_key "RPM-GPG-KEY-logentries" do
+    url 'http://rep.logentries.com/RPM-GPG-KEY-logentries'
+    action :add
+  end
+
   yum_repository 'logentries' do
+    repo_name 'logentries'
     description 'Logentries repo'
-    baseurl 'http://rep.logentries.com/rh/\$basearch'
-    gpgkey 'http://rep.logentries.com/RPM-GPG-KEY-logentries'
-    action :create
+    url 'http://rep.logentries.com/rh/\$basearch'
+    key 'RPM-GPG-KEY-logentries'
+    action :add
   end
 end
 
