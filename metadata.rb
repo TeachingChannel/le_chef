@@ -11,4 +11,4 @@ supports 'ubuntu'
 supports 'rhel'
 
 depends 'apt'
-depends 'yum'
+depends 'yum', '~>2.0'
